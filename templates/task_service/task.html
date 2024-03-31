@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>In progress</h3>
+<ul>
+    {% for model_instance in object_list %}
+    <li>{{ model_instance }}</li>
+    {% empty %}
+    <li>No models yet.</li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
