@@ -3,13 +3,19 @@
 {% block content %}
 
 <a href="{% url 'new_task' %}" class="top-menu">
-    {% include './icons/plus-sign.svg' %}
+    {% include 'icons/plus-svgrepo-com.svg' %}
 </a>
 
 <h3>In progress</h3>
 <ul>
-    {% for model_instance in object_list %}
-    <li>{{ model_instance }}</li>
+    {% for task in in_progress %}
+    <a href="{% url 'update_done' %}" class="top-menu">
+        {% include 'icons/play-svgrepo-com.svg' %}
+    </a>
+    <a href="{% url 'delete' %}" class="top-menu">
+        {% include 'icons/trash-svgrepo-com.svg' %}
+    </a>
+    <li>{{ task }}</li>
     {% empty %}
     <li>There are currently no taks</li>
     {% endfor %}
@@ -17,8 +23,14 @@
 
 <h3>To do</h3>
 <ul>
-    {% for model_instance in object_list %}
-    <li>{{ model_instance }}</li>
+    {% for task in to_do %}
+    <a href="{% url 'update_in_progress' %}" class="top-menu">
+        {% include 'icons/play-svgrepo-com.svg' %}
+    </a>
+    <a href="{% url 'delete' %}" class="top-menu">
+        {% include 'icons/trash-svgrepo-com.svg' %}
+    </a>
+    <li>{{ task }}</li>
     {% empty %}
     <li>There are currently no taks</li>
     {% endfor %}
@@ -26,8 +38,8 @@
 
 <h3>Done</h3>
 <ul>
-    {% for model_instance in object_list %}
-    <li>{{ model_instance }}</li>
+    {% for task in done %}
+    <li>{{ task }}</li>
     {% empty %}
     <li>There are currently no taks</li>
     {% endfor %}
