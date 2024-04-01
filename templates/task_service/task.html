@@ -1,14 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<a href="{% url 'new_task' %}" class="top-menu">
+    {% include './icons/plus-sign.svg' %}
+</a>
+
 <h3>In progress</h3>
 <ul>
     {% for model_instance in object_list %}
     <li>{{ model_instance }}</li>
     {% empty %}
-    <li>No models yet.</li>
+    <li>There are currently no taks</li>
     {% endfor %}
 </ul>
 
+<h3>To do</h3>
+<ul>
+    {% for model_instance in object_list %}
+    <li>{{ model_instance }}</li>
+    {% empty %}
+    <li>There are currently no taks</li>
+    {% endfor %}
+</ul>
+
+<h3>Done</h3>
+<ul>
+    {% for model_instance in object_list %}
+    <li>{{ model_instance }}</li>
+    {% empty %}
+    <li>There are currently no taks</li>
+    {% endfor %}
+</ul>
 
 {% endblock %}

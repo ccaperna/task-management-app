@@ -5,12 +5,29 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* This makes the body take up the full viewport height */
     margin: 0;
-    /* Removes default margin */
+    height: 100vh;
 }
 
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
 
 h1 {
     text-align: center;
+}
+
+.top-menu,
+.top-menu:hover,
+.top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
 }
