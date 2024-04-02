@@ -35,40 +35,52 @@
 </div>
 
 <h3>To do</h3>
-<ul>
-  {% for task in to_do %}
-  <div class="">
+<div class="in-progress-container">
+  <ul class="title-list">
+    {% for task in to_do %}
     <li>{{ task.title }}</li>
-    <div class="icon-container">
-      <a
-        href="{% url 'task_action' task.pk %}?action=update_in_progress"
-        class="top-menu"
-      >
+
+    {% empty %}
+    <li>There are currently no tasks in to do</li>
+    {% endfor %}
+  </ul>
+  <ul class="title-list">
+    {% for task in to_do %}
+    <li class="icon1">
+      <a href="{% url 'task_action' task.pk %}?action=update_in_progress">
         {% include 'icons/play-svgrepo-com.svg' %}
       </a>
-      <a href="{% url 'task_view' task.pk %}">
-        {% include 'icons/lens-svgrepo-com.svg' %}
-      </a>
-    </div>
-  </div>
-  {% empty %}
-  <li>There are currently no tasks in to do</li>
-  {% endfor %}
-</ul>
-
-<h3>Done</h3>
-<div class="in-progress-container">
-  <ul class="icon-list">
-    {% for task in done %}
-
-    <li>{{ task.title }}</li>
-    <li>
+    </li>
+    {% endfor %}
+  </ul>
+  <ul class="title-list">
+    {% for task in to_do %}
+    <li class="icon2">
       <a href="{% url 'task_view' task.pk %}">
         {% include 'icons/lens-svgrepo-com.svg' %}
       </a>
     </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<h3>Done</h3>
+<div class="in-progress-container">
+  <ul class="title-list">
+    {% for task in done %}
+    <li>{{ task.title }}</li>
+
     {% empty %}
     <li>There are currently no tasks in done</li>
+    {% endfor %}
+  </ul>
+  <ul class="title-list">
+    {% for task in done %}
+    <li class="icon2">
+      <a href="{% url 'task_view' task.pk %}">
+        {% include 'icons/lens-svgrepo-com.svg' %}
+      </a>
+    </li>
     {% endfor %}
   </ul>
 </div>

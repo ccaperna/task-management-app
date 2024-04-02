@@ -6,7 +6,7 @@ Class-based view
 
 ### Database
 
-MySQL
+SQLite
 
 ### Next steps
 
