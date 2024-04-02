@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block content %}
+
+<a href="{% url 'new_task' %}" class="top-menu">
+  {% include 'icons/plus-svgrepo-com.svg' %}
+</a>
+
+<h3>In progress</h3>
+<ul>
+  {% for task in in_progress %}
+  <a href="{% url 'task_action' task.pk %}?action=update_done" class="top-menu">
+    {% include 'icons/done-mini-1484-svgrepo-com.svg' %}
+  </a>
+  <a href="{% url 'task_view' task.pk %}">
+    {% include 'icons/lens-svgrepo-com.svg' %}
+  </a>
+  <li>{{ task.title }}</li>
+
+  {% empty %}
+  <li>There are currently no tasks in progress</li>
+  {% endfor %}
+</ul>
+
+<h3>To do</h3>
+<ul>
+  {% for task in to_do %}
+  <a
+    href="{% url 'task_action' task.pk %}?action=update_in_progress"
+    class="top-menu"
+  >
+    {% include 'icons/play-svgrepo-com.svg' %}
+  </a>
+  <a href="{% url 'task_view' pk=task.pk %}">
+    {% include 'icons/lens-svgrepo-com.svg' %}
+  </a>
+  <li>{{ task.title }}</li>
+  {% empty %}
+  <li>There are currently no tasks to do</li>
+  {% endfor %}
+</ul>
+
+<h3>Done</h3>
+<ul>
+  {% for task in done %}
+
+  <a href="{% url 'task_view' pk=task.pk %}">
+    {% include 'icons/lens-svgrepo-com.svg' %}
+  </a>
+  <li>{{ task.title }}</li>
+  {% empty %}
+  <li>There are currently no done taks</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

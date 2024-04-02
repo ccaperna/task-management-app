@@ -4,10 +4,15 @@ from .models import Task
 
 class TaskForm(forms.ModelForm):
     author = forms.CharField(max_length=50, required=True)
-    deadline = forms.DateTimeField(required=True)
+    deadline = forms.DateTimeField(
+        required=True,
+        widget=forms.DateInput(format='%d-%m-%Y', attrs={'type': 'date'})
+    )
     title = forms.CharField(max_length=100, required=True)
-    description = forms.CharField(max_length=500, required=True)
+    description =forms.CharField(
+        widget=forms.Textarea(attrs={'rows': 10, 'cols': 60})
+    )
 
     class Meta:
         model = Task
-        fields = "__all__"
+        fields = ["author", "deadline", "title", "description"]

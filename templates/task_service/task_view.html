@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>{{ task.title }}</h2>
+<p>Author: {{ task.author }}</p>
+<p>Deadline: {{ task.deadline }}</p>
+<p>Description: {{ task.description }}</p>
+<p>Created: {{ task.created }}</p>
+
+<a href="{% url 'task_edit' pk=task.pk %}">
+    {% include 'icons/pencil-fill.svg' %}
+  </a>
+  
+<a href="{% url 'task_action' task.pk %}?action=delete" class="top-menu">
+    {% include 'icons/trash-svgrepo-com.svg' %}
+  </a>
+
+{% endblock %}

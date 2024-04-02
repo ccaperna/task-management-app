@@ -10,8 +10,8 @@ class Task(models.Model):
         DONE = 2
 
     author = models.CharField(max_length=50)
-    deadline = models.DateTimeField()
+    deadline = models.DateField()
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=500)
-    status = EnumField(Status)
+    description = models.TextField(max_length=1000)
+    status = EnumField(Status, default=Status.CREATED)
     created = models.DateTimeField(auto_now_add=True)
