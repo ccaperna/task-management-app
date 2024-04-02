@@ -7,11 +7,11 @@
 <p>Created: {{ task.created }}</p>
 
 <a href="{% url 'task_edit' pk=task.pk %}">
-    {% include 'icons/pencil-fill.svg' %}
-  </a>
-  
-<a href="{% url 'task_action' task.pk %}?action=delete" class="top-menu">
-    {% include 'icons/trash-svgrepo-com.svg' %}
-  </a>
+  {% include 'icons/pencil-fill.svg' %}
+</a>
+
+<a href="{% url 'task_remove' pk=task.pk %}">
+  {% include 'icons/trash-svgrepo-com.svg' %}
+</a>
 
 {% endblock %}
