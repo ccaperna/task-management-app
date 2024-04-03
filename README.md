@@ -25,3 +25,16 @@ The app can be improved with better design and also new features, here are some 
  - add subtask model
  - implement django messages
  - implement task archiving
+
+### Run this project
+
+To run this project on your machine follow the following steps:
+ - make sure you have python installed
+ - clone the repository and checkout to the development branch
+ - create a virtual environment with the following command -> python -m venv venv
+ - activate virtual env -> venv/Scripts/activate (on windows) or source venv/bin/activate (on linux)
+ - install project dependencies -> pip freeze -r requirements.txt
+ - apply migrations to db -> python manage.py migrate
+ - run the server on localhost -> python manage.py runserver
+
+and you are ready to go
